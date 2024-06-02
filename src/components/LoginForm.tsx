@@ -3,7 +3,7 @@
 import { useState } from 'react';
 
 interface LoginFormProps {
-  onLogin: (userData: { username: string; password: string; role: string }) => void;
+  onLogin: (userData: { username: string; password: string}) => void;
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
@@ -18,9 +18,9 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
     }
 
     // Retrieve user data from local storage (assuming it's already saved during signup)
-    const storedUserData = localStorage.getItem('userData');
-    if (storedUserData) {
-      const userData = JSON.parse(storedUserData);
+    // const storedUserData = localStorage.getItem('userData');
+    if (username && password) {
+      const userData = {username: username, password: password}
       // Call the onLogin function with the user data
       onLogin(userData);
     } else {
