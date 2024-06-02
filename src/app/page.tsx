@@ -14,7 +14,6 @@ import Link from 'next/link';
 
 const Home = () => {
 
-  // created two state one for login and other is for logout. They will use on everypage so write in a main file.
   const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
   const [role, setRole] = useState('');
@@ -27,10 +26,9 @@ const Home = () => {
 
   const handleLogin = (loginData: { username: string; password: string }) => {
     const storedUserData = localStorage.getItem('userData');
-    debugger
     if (storedUserData) {
       const userData = JSON.parse(storedUserData);
-      let userFound = false; // Flag to track if a matching user is found
+      let userFound = false;
       for (const user of userData) {
         if (
           loginData.username === user.username &&
@@ -39,11 +37,10 @@ const Home = () => {
           setUsername(user.username);
           setRole(user.role);
           setLoggedIn(true);
-          userFound = true; // Set flag to true indicating a matching user is found
+          userFound = true;
         }
       }
       if (!userFound) {
-        // Alert if no matching user is found after iterating through all users
         alert('Invalid credentials. Please try again.');
       }
     } else {
@@ -52,7 +49,6 @@ const Home = () => {
   };
 
   const handleLogout = () => {
-    // Clear user data from local storage
     setLoggedIn(false);
     setUsername('');
     setRole('');
@@ -72,51 +68,46 @@ const Home = () => {
   };
 
   return (
-    <> 
-
-      <div className="flex items-center justify-center min-h-screen bg-gray-900">
+    <>
+      <div className="flex items-center justify-center min-h-screen bg-gray-900 px-1 sm:px-6 lg:px-8">
         {!loggedIn ? (
-          <>
-          
-          <div className="p-6 bg-gray-800 text-white rounded shadow-md w-full max-w-md">
-            <h1 className="mb-6 text-2xl font-bold text-center">Welcome</h1>
-            <SignUpForm onSignUp={handleSignUp} />
-            <LoginForm onLogin={handleLogin} />
+          <div className="w-full max-w-md space-y-8">
+            <div className="p-6 bg-gray-800 text-white rounded shadow-md">
+              <h1 className="mb-6 text-2xl font-bold text-center">Welcome</h1>
+              <SignUpForm onSignUp={handleSignUp} />
+              <LoginForm onLogin={handleLogin} />
+            </div>
+            <div className="space-y-8">
+              <div className="space-y-10 text-white">
+                {demos.map((section) => {
+                  return (
+                    <div key={section.name} className="space-y-5">
+                      <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+                        {section.items.map((item) => {
+                          return (
+                            <Link
+                              href={`/${item.slug}`}
+                              key={item.name}
+                              className="group block space-y-1.5 rounded-lg bg-gray-900 px-5 py-3 hover:bg-gray-800"
+                            >
+                              <div className="font-medium text-gray-200 group-hover:text-gray-50">
+                                {item.name}
+                              </div>
+                              {item.description ? (
+                                <div className="line-clamp-3 text-sm text-gray-400 group-hover:text-gray-300">
+                                  {item.description}
+                                </div>
+                              ) : null}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
-          <div className="space-y-8">
-    
-          <div className="space-y-10 text-white">
-            {demos.map((section) => {
-              return (
-                <div key={section.name} className="space-y-5">
-    
-                  <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-                    {section.items.map((item) => {
-                      return (
-                        <Link
-                          href={`/${item.slug}`}
-                          key={item.name}
-                          className="group block space-y-1.5 rounded-lg bg-gray-900 px-5 py-3 hover:bg-gray-800"
-                        >
-                          <div className="font-medium text-gray-200 group-hover:text-gray-50">
-                            {item.name}
-                          </div>
-    
-                          {item.description ? (
-                            <div className="line-clamp-3 text-sm text-gray-400 group-hover:text-gray-300">
-                              {item.description}
-                            </div>
-                          ) : null}
-                        </Link>
-                      );
-                    })}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-        </>
         ) : (
           renderDashboard()
         )}
