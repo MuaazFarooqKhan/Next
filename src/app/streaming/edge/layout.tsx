@@ -15,9 +15,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <>
       <Boundary animateRerendering={false} labels={['Demo']} size="small">
         <CartCountProvider initialCartCount={cartCount}>
-          <div className="space-y-10">
+          <div className="px-4 lg:px-0 space-y-10 lg:space-y-14">
             <Header />
-
             {children}
           </div>
         </CartCountProvider>

@@ -9,8 +9,8 @@ import { CartCount } from './cart-count';
 
 export function Header() {
   return (
-    <div className="flex items-center justify-between gap-x-3 rounded-lg bg-gray-800 px-3 py-3 lg:px-5 lg:py-4">
-      <div className="flex gap-x-3">
+    <div className="flex flex-col lg:flex-row items-center justify-between gap-y-3 lg:gap-y-0 gap-x-3 rounded-lg bg-gray-800 px-3 py-3 lg:px-5 lg:py-4">
+      <div className="flex gap-x-3 items-center">
         <Link href="/streaming" style={{marginLeft: '80px'}}>
           <div className="h-10 w-10 hover:opacity-70">
             <NextLogoLight />
@@ -33,22 +33,22 @@ export function Header() {
         </div>
       </div>
 
-      <div className="flex gap-x-3">
-      <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-gray-600 text-white">
-        <ShoppingCartIcon className="w-6 text-white" />
-        <div className="absolute right-0 top-0 flex h-4 w-4 items-center justify-center rounded-full bg-cyan-300 text-sm font-bold text-cyan-800">
-          <CartCount />
+      <div className="flex gap-x-3 items-center">
+        <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-gray-600 text-white">
+          <ShoppingCartIcon className="w-6 text-white" />
+          <div className="absolute right-0 top-0 flex h-4 w-4 items-center justify-center rounded-full bg-cyan-300 text-sm font-bold text-cyan-800">
+            <CartCount />
+          </div>
         </div>
-      </div>
 
-      <Image
+        <Image
           src="/prince-akachi-LWkFHEGpleE-unsplash.jpg"
           className="rounded-full"
           width={40}
           height={40}
           alt="User"
         />
-    </div>
+      </div>
     </div>
   );
 }

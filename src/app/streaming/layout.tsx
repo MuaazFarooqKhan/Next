@@ -11,14 +11,10 @@ export const metadata = {
   },
 };
 
-export default async function Layout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="space-y-9">
-      <div className="flex justify-between">
+    <div className="space-y-6 lg:space-y-9 lg:px-4">
+      <div className="lg:flex lg:justify-between lg:items-center">
         <TabGroup
           path="/streaming"
           items={[

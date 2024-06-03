@@ -11,7 +11,7 @@ export const runtime = 'experimental-edge';
 
 export default async function Page({ params }: { params: { id: string } }) {
   return (
-    <div className="space-y-8 lg:space-y-14">
+    <div className="space-y-8 lg:space-y-14 px-4 lg:px-0">
       <SingleProduct
         data={fetch(
           `https://app-playground-api.vercel.app/api/products?id=${params.id}`,
@@ -28,12 +28,8 @@ export default async function Page({ params }: { params: { id: string } }) {
         <RecommendedProducts
           path="/streaming/edge/product"
           data={fetch(
-            // We intentionally delay the response to simulate a slow data
-            // request that would benefit from streaming
             `https://app-playground-api.vercel.app/api/products?delay=500&filter=${params.id}`,
             {
-              // We intentionally disable Next.js Cache to better demo
-              // streaming
               cache: 'no-store',
             },
           )}
@@ -49,12 +45,8 @@ export default async function Page({ params }: { params: { id: string } }) {
       <Suspense fallback={<ReviewsSkeleton />}>
         <Reviews
           data={fetch(
-            // We intentionally delay the response to simulate a slow data
-            // request that would benefit from streaming
             `https://app-playground-api.vercel.app/api/reviews?delay=1000`,
             {
-              // We intentionally disable Next.js Cache to better demo
-              // streaming
               cache: 'no-store',
             },
           )}

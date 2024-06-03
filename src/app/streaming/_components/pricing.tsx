@@ -1,4 +1,4 @@
-import type { Product } from '../../../app//categories//products/product';
+import type { Product } from '../../../app/categories/products/product';
 import { Ping } from '../../../ui/ping';
 import { ProductEstimatedArrival } from '../../../ui/product-estimated-arrival';
 import { ProductLowStockWarning } from '../../../ui/product-low-stock-warning';
@@ -65,7 +65,7 @@ export function Pricing({
   const price = dinero(product.price as DineroSnapshot<number>);
 
   return (
-    <div className="space-y-4 rounded-lg bg-gray-900 p-3">
+    <div className="space-y-4 rounded-lg bg-gray-900 p-3 lg:p-5">
       <ProductPrice price={price} discount={product.discount} />
 
       <div className="relative">

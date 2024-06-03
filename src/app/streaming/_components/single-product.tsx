@@ -12,8 +12,8 @@ export const SingleProduct = async ({ data }: { data: Promise<Response> }) => {
   const cartCount = cookies().get('_cart_count')?.value || '0';
 
   return (
-    <div className="grid grid-cols-4 gap-6">
-      <div className="col-span-full lg:col-span-1">
+    <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+      <div className="lg:col-span-1">
         <div className="space-y-2">
           <Image
             src={`/${product.image}`}
@@ -55,20 +55,22 @@ export const SingleProduct = async ({ data }: { data: Promise<Response> }) => {
         </div>
       </div>
 
-      <div className="col-span-full space-y-4 lg:col-span-2">
-        <div className="truncate text-xl font-medium text-white lg:text-2xl">
-          {product.name}
-        </div>
+      <div className="lg:col-span-2">
+        <div className="space-y-4">
+          <div className="truncate text-xl font-medium text-white lg:text-2xl">
+            {product.name}
+          </div>
 
-        <ProductRating rating={product.rating} />
+          <ProductRating rating={product.rating} />
 
-        <div className="space-y-4 text-sm text-gray-200">
-          <p>{product.description}</p>
-          <p>{product.description}</p>
+          <div className="space-y-4 text-sm text-gray-200">
+            <p>{product.description}</p>
+            <p>{product.description}</p>
+          </div>
         </div>
       </div>
 
-      <div className="col-span-full lg:col-span-1">
+      <div className="lg:col-span-1">
         <Pricing product={product} cartCount={cartCount} />
       </div>
     </div>

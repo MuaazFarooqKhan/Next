@@ -58,9 +58,9 @@ const Home = () => {
       case 'user':
         return <AdminPage username={username} role={role} onLogout={handleLogout} />;
       case 'agent':
-        return <AgentPage username={username} role={role} onLogout={handleLogout} />;
+        return <AgentPage username={username} onLogout={handleLogout} />;
       case 'salesman':
-        return <SalesPage username={username} role={role} onLogout={handleLogout} />;
+        return <SalesPage username={username} onLogout={handleLogout} />;
       default:
         return null;
     }

@@ -20,9 +20,9 @@ export async function RecommendedProducts({
           Based on your preferences and shopping habits
         </div>
       </div>
-      <div className="grid grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
         {products.map((product) => (
-          <div key={product.id} className="col-span-4 lg:col-span-1">
+          <div key={product.id}>
             <ProductCard product={product} href={`${path}/${product.id}`} />
           </div>
         ))}
@@ -35,7 +35,7 @@ const shimmer = `relative overflow-hidden before:absolute before:inset-0 before:
 
 function ProductSkeleton() {
   return (
-    <div className="col-span-4 space-y-4 lg:col-span-1">
+    <div className="space-y-4">
       <div className={`relative h-[167px] rounded-xl bg-gray-900 ${shimmer}`} />
 
       <div className="h-4 w-full rounded-lg bg-gray-900" />
@@ -54,7 +54,7 @@ export function RecommendedProductsSkeleton() {
         <div className={`h-4 w-1/2 rounded-lg bg-gray-900 ${shimmer}`} />
       </div>
 
-      <div className="grid grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
         <ProductSkeleton />
         <ProductSkeleton />
         <ProductSkeleton />

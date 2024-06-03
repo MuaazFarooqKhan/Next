@@ -1,5 +1,3 @@
-// components/LoginForm.tsx
-
 import { useState } from 'react';
 
 interface LoginFormProps {
@@ -29,8 +27,8 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin }) => {
   };
 
   return (
-    <div className="mb-4">
-      <h2 className="mb-4 text-xl font-semibold">Login</h2>
+    <div className="max-w-md mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <h2 className="text-xl font-semibold mb-4">Login</h2>
       <input
         type="text"
         placeholder="Username"

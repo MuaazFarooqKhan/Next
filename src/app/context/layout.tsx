@@ -12,26 +12,26 @@ export default async function Layout({
 }) {
   const categories = await getCategories();
   return (
-        <CounterProvider>
-            <div className="space-y-9">
-              <div className="flex justify-between">
-                <TabGroup
-                  path="/context"
-                  items={[
-                    {
-                      text: 'Home',
-                    },
-                    ...categories.map((x) => ({
-                      text: x.name,
-                      slug: x.slug,
-                    })),
-                  ]}
-                />
-              </div>
+    <CounterProvider>
+      <div className="space-y-9">
+        <div className="lg:flex lg:justify-between">
+          <TabGroup
+            path="/context"
+            items={[
+              {
+                text: 'Home',
+              },
+              ...categories.map((x) => ({
+                text: x.name,
+                slug: x.slug,
+              })),
+            ]}
+          />
+        </div>
 
-              <ContextClickCounter />
-              <div>{children}</div>
-            </div>
-        </CounterProvider>
+        <ContextClickCounter />
+        <div className="lg:flex lg:justify-center">{children}</div>
+      </div>
+    </CounterProvider>
   );
 }
