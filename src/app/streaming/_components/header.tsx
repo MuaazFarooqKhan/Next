@@ -11,7 +11,7 @@ export function Header() {
   return (
     <div className="flex items-center justify-between gap-x-3 rounded-lg bg-gray-800 px-3 py-3 lg:px-5 lg:py-4">
       <div className="flex gap-x-3">
-        <Link href="/streaming">
+        <Link href="/streaming" style={{marginLeft: '80px'}}>
           <div className="h-10 w-10 hover:opacity-70">
             <NextLogoLight />
           </div>
@@ -26,6 +26,7 @@ export function Header() {
             type="search"
             name="search"
             id="search"
+            style={{margin:7}}
             className="block w-full rounded-full border-none bg-gray-600 pl-10 font-medium text-gray-200 focus:border-vercel-pink focus:ring-2 focus:ring-vercel-pink"
             autoComplete="off"
           />

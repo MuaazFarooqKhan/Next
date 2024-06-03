@@ -12,6 +12,7 @@ const Label = ({
 }) => {
   return (
     <div
+    style={{marginTop: '20px', marginLeft: '12px'}}
       className={clsx('rounded-full px-1.5 shadow-[0_0_1px_3px_black]', {
         'bg-gray-800 text-gray-300': color === 'default',
         'bg-vercel-pink text-white': color === 'pink',

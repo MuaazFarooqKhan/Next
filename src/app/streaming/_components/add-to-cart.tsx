@@ -35,6 +35,7 @@ export function AddToCart({ initialCartCount }: { initialCartCount: number }) {
     });
   };
   const RemoveFromCart = () => {
+    if(initialCartCount > 0){
     setOptimisticCartCount(initialCartCount - 1);
 
     // update the cart count cookie
@@ -56,6 +57,10 @@ export function AddToCart({ initialCartCount }: { initialCartCount: number }) {
       // We're working on more fine-grained data mutation and revalidation:
       // https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions
     });
+  }
+  else{
+    alert("There's no Data in the Cart")
+  }
   };
 
   return (
