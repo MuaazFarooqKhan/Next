@@ -4,6 +4,7 @@ import {
   ShoppingCartIcon,
 } from '@heroicons/react/24/solid';
 import Link from 'next/link';
+import Image from 'next/image';
 import { CartCount } from './cart-count';
 
 export function Header() {
@@ -38,6 +39,14 @@ export function Header() {
           <CartCount />
         </div>
       </div>
+
+      <Image
+          src="/prince-akachi-LWkFHEGpleE-unsplash.jpg"
+          className="rounded-full"
+          width={40}
+          height={40}
+          alt="User"
+        />
     </div>
     </div>
   );

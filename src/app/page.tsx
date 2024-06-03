@@ -8,7 +8,6 @@ import AdminPage from '@/components/rolePage/Admin';
 import AgentPage from '@/components/rolePage/Agent';
 import SalesPage from '@/components/rolePage/Sales';
 import "./globals.css";
-import NavBar from '@/components/NavBar';
 import { demos } from '../lib/demos';
 import Link from 'next/link';
 
