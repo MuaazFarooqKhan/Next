@@ -20,21 +20,21 @@ export const demos: { name: string; items: Item[] }[] = [
     name: 'Components',
     items: [
       {
-        name: 'Client Context',
+        name: 'useContext hook',
         slug: 'context',
         description:
-          'Pass context between Client Components that cross Server/Client Component boundary',
+          'State management',
       },
     ],
   },
   {
-    name: 'Data Fetching',
+    name: 'Dashboard',
     items: [
       {
         name: 'Streaming with Suspense',
         slug: 'streaming',
         description:
-          'Streaming data fetching from the server with React Suspense',
+          'Fetch and display data',
       }
     ],
   },

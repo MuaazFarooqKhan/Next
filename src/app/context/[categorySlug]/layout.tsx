@@ -14,7 +14,6 @@ export default async function Layout({
   const categories = await getCategories({ parent: params.categorySlug });
 
   return (
-    <Boundary labels={['Layout [Server Component]']} animateRerendering={false}>
       <div className="space-y-9">
         <TabGroup
           path={`/context/${category.slug}`}
@@ -31,6 +30,5 @@ export default async function Layout({
         <Counter />
         <div>{children}</div>
       </div>
-    </Boundary>
   );
 }

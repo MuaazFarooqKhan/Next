@@ -5,16 +5,6 @@ import { CounterProvider } from '../context/counter-context';
 import React from 'react';
 import ContextClickCounter from './context-click-counter';
 
-const title = 'Client Context';
-
-export const metadata = {
-  title,
-  openGraph: {
-    title,
-    images: [`/api/og?title=${title}`],
-  },
-};
-
 export default async function Layout({
   children,
 }: {
@@ -23,11 +13,6 @@ export default async function Layout({
   const categories = await getCategories();
   return (
         <CounterProvider>
-          <Boundary
-            labels={['useContext Component Boundary']}
-            size="small"
-            animateRerendering={false}
-          >
             <div className="space-y-9">
               <div className="flex justify-between">
                 <TabGroup
@@ -47,7 +32,6 @@ export default async function Layout({
               <ContextClickCounter />
               <div>{children}</div>
             </div>
-          </Boundary>
         </CounterProvider>
   );
 }
